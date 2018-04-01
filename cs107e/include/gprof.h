@@ -19,7 +19,8 @@ bool gprof_is_active(void);
 /* Print the profiler results */
 void gprof_dump(void);
 
-/* Handle timer interrupts */
-void gprof_handler(unsigned int pc);
+/* This will be implemented in shell */
+int cmd_profile(int argc, const char *argv[]);
+
 
 #endif
