@@ -1,0 +1,26 @@
+language: c
+
+addons:
+    apt:
+        sources:
+            - sourceline: 'ppa:team-gcc-arm-embedded/ppa'
+        packages:
+            - gcc-arm-embedded
+
+
+install:
+    - git clone https://$CLONE_TESTS_GITHUB_USERNAME:$CLONE_TESTS_GITHUB_PASSWORD@github.com/cs107e/tests.git
+    - tests/setup_travis.sh
+
+script:
+    - tests/run_travis.sh
+
+after_script:
+    - tests/post-run.sh
+
+branches:
+    except:
+        - submit-assign4
+        - submit-assign5
+        - submit-assign6
+        - submit-assign7

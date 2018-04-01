@@ -1,0 +1,39 @@
+permalink,title,released
+"/assignments/assign0/","Assignment 0: Choose Lab Section, Learn Git",false
+"/assignments/assign1/","Assignment 1: Implement a Larson Scanner",false
+"/assignments/assign2/","Assignment 2: Implement a Clock",false
+"/assignments/assign3/","Assignment 3: Implement a String Formatting Library",false
+"/assignments/assign4/","Assignment 4: Backtrace and Malloc",false
+"/assignments/assign5/","Assignment 5: Keyboard and Simple Shell",false
+"/assignments/assign6/","Assignment 6: Graphics Library and Console",false
+"/assignments/assign7/","Assignment 7: System Monitor with Interrupts",false
+"/assignments/project/","Project Suggestions and Guides",false
+"/labs/lab1/","Lab 1: Setup the Raspberry Pi",false
+"/labs/lab2/","Lab 2: Below C Level",false
+"/labs/lab3/","Lab 3: Debugging and Testing",false
+"/labs/lab4/","Lab 4: Linked and Loaded",false
+"/labs/lab5/","Lab 5: Keyboard Surfin",false
+"/labs/lab6/","Lab 6: Drawing into the Framebuffer",false
+"/labs/lab7/","Lab 7: Raspberry Pi, Interrupted",false
+"/labs/projectlab1/","Project Lab 1: What is Your Project?",false
+"/labs/projectlab2/","Project Lab 2: How Are You Doing?",false
+"","ARM Processor and Memory Architecture Lecture",false
+"","ARM Processor and Memory Architecture Lecture",false
+"","Computer Arithmetic: Signed and unsigned numbers",false
+"","C-mastery",false
+"","C1: C and Assembly Language",false
+"","C2: Pointers and Arrays",false
+"","",false
+"","Functions",false
+"","Git Workflow",false
+"","Interrupts",false
+"","Interrupts and Concurrency",false
+"","",false
+"","Keyboards and the PS/2 Protocol",false
+"","Modules and Libraries: Linking",false
+"","Memory Management",false
+"","Performance",false
+"","Sensors",false
+"","Communication: The Serial Protocol and ASCII Character Codes",false
+"","Sound",false
+"","Wrap Up",false
