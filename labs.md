@@ -14,8 +14,8 @@ title: Labs
 ### Lab schedule
 Labs meet in B21, our lab room in the basement of the Gates building.
 
-- Tuesday, Time TBA
-- Wednesday, Time TBA
+- Tuesday, 6:30pm-8:30pm
+- Wednesday, 6:30pm-8:30pm
 
 
 ### Common questions about lab

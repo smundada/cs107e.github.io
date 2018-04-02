@@ -47,7 +47,7 @@ All class announcements will be posted on
 ### Course Info
 
   -   **Lectures:** Mon & Fri 10:30 AM-11:50 PM, Gates B12
-  -   **Labs**: Tue & Wed Time TBA, Gates B21 
+  -   **Labs**: Tue & Wed 6:30pm-8:30pm, Gates B21 
   -   **Lecturers**: Chris Gregg, Phil Levis
   -   **CAs**: Jean-Luc Watson, Lenny Truong
   -   **Section Leaders**: Jane Lange, Matt Trost
