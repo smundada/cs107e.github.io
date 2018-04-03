@@ -5,34 +5,41 @@ title: Guide to automated checker
 
 You can learn more about automated testing, and check on its results
 before you make a pull request, by logging into
-[CircleCI](https://circleci.com) with your GitHub account. Then go to
-[Add projects](https://circleci.com/add-projects) and then choose the
-cs107e GitHub account, then click 'Watch project' next to your
-assignments repo. Then click the newly appeared eye icon to view your
-repo's test page on CircleCI, which should show an entry for each time
-you've pushed so far.
+[TravisCI](https://travis-ci.com) with your GitHub account.  Authorize
+Travis CI for Private Projects, giving it access to your private assignments
+repositories.
+On the left hand side, click on cs107e under the Organizations list.
 
-<img title="Watching the CircleCI project."
-src="../images/ci-watch-project.png" width="500">
+<img title="TravisCI Home Page" src="/guides/images/travis-organization.png" width="800">
 
-<img title="CI page for assignments repo." src="../images/ci-repo.png" width="500">
+You should now see your assignments repository listed below the filter
+repositories search input.
 
-Then you can also click the Details link in the test result in your
-pull request (which you might want to make early -- you can always
-push more commits to it) to see the CircleCI results page from testing
-your latest solution.
+<img title="Assignments Repository" src="/guides/images/travis-ci-student-repo.png" width="800">
 
-<img title="Pull request page." src="/assignments/assign0/images/07-pull-request.png" width="500">
+Clicking on the repository will show you the results of your latest Travis
+build. Here you can scan the Job log to understand any failures reported by the
+automated checker. You can also select the Build History tab to view a list of
+your past builds.
 
-The results page shows the result of testing one particular solution
-you pushed. You might need to scroll down to 'tests/run.sh' and dig
-around to find the output if something like `make` failed.
+<img title="CI page for assignments repo." src="/guides/images/ci-repo.png" width="800">
 
-<img title="make failure output." src="../images/ci-output.png"
-width="600">
+On the GitHub, you can also click the Details link in the test result in your
+pull request (which you might want to make early -- you can always push more
+commits to it) to see the TravisCI results page from testing your latest
+solution.
 
-You can even download the larson.bin that was generated on the test
-machine, although hopefully it's exactly the same as the one you're
-building on your computer!
+<img title="Pull request page." src="/assignments/assign0/images/07-pull-request.png" width="800">
 
-<img title="Build artifacts." src="../images/ci-artifacts.png" width="500">
+You can also click the icon next to a commit to see the results of a Travis
+build. This icon will show a red "x" for a build failure, a yellow circle for a
+build in progress, and a green checkmark for a succesful build.
+<img title="Pull request page." src="/guides/images/travis-github-commit-icon.png" width="800">
+
+The build page shows the result of testing one particular commit you pushed.
+You'll need to scroll down to the log to the line that says `tests/run.sh` and
+dig around to find the output if something like `make` failed.  Here's an
+example of not including a `background.txt` in your assign0 submission.
+
+<img title="Travis assertion failure" src="/guides/images/travis-assertion.png"
+width="800">
