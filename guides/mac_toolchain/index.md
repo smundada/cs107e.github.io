@@ -30,14 +30,14 @@ running. If you are already using Homebrew, skip to the next section.
     should pop up on your screen. Click "Install" when it appears.
 
     ```
-$ xcode-select --install
+    $ xcode-select --install
     ```
 
 2.  Run Homebrew's install script by using the command below. The script will
     guide you through the rest of the install process.
 
     ```
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     ```
 
 #### Install the `arm-none-eabi` formula
@@ -46,24 +46,24 @@ $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/maste
     This allows you to use the Homebrew formulas we have provided.
 
     ```
-$ brew tap cs107e/cs107e
+    $ brew tap cs107e/cs107e
     ```
 
 2.  Install the `arm-none-eabi` toolchain:
 
     ```
-$ brew install arm-none-eabi
+    $ brew install arm-none-eabi
     ```
 
 3.  Ensure it works by running the following command and checking that its
     output is identical to what is displayed below:
 
     ```
-$ arm-none-eabi-gcc --version
-arm-none-eabi-gcc (GCC) 4.8.3
-Copyright (C) 2013 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+    $ arm-none-eabi-gcc --version
+    arm-none-eabi-gcc (GCC) 4.8.3
+    Copyright (C) 2013 Free Software Foundation, Inc.
+    This is free software; see the source for copying conditions.  There is NO
+    warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
     ```
 
 ### Console drivers and script installation
@@ -96,48 +96,23 @@ to install a few things. These instructions will guide you through those steps.
     exists by looking for the device file:
 
     ```
-$ ls /dev/tty.SLAB_USBtoUART
-/dev/tty.SLAB_USBtoUART
-
+    $ ls /dev/tty.SLAB_USBtoUART
+    /dev/tty.SLAB_USBtoUART
     ```
     ![USB breakout board](../images/usb.breakout.board.JPG)
 
 3.  Ensure you have `pip`, a Python package manager, installed. If you do not,
     run `sudo easy_install pip`.
 
-4.  Install the `rpi-install.py` Python script using Homebrew:
+4.  Install the following Python libraries using Homebrew:
 
     ```
-$ sudo pip install pyserial
-$ sudo pip install xmodem
-$ brew install rpi-install
+    $ sudo pip install pyserial
+    $ sudo pip install xmodem
     ```
 
     If `sudo pip install xmodem` complains `OSError: [Errno 1]
     Operation not permitted:
     '/System/Library/Frameworks/Python.framework/Versions/2.7/doc'`,
-    don't worry: just keep going with the `brew install rpi-install`.
+    don't worry.
 
-    (If you have trouble with brew not recognizing your python has a valid pyserial/xmodem, try instead the command `brew install rpi-install --ignore-dependencies`)
-
-5.  Check that everything is working by running `rpi-install.py -h`. You should
-    see the output below:
-
-~~~
-$ rpi-install.py -h
-usage: rpi-install.py [-h] [-v] [-q] [-t T] [-p | -s] [port] file
-
-This script sends a binary file to the Raspberry Pi bootloader. Version 0.8.
-
-positional arguments:
-  port        serial port
-  file        binary file to upload
-
-optional arguments:
-  -h, --help  show this help message and exit
-  -v          verbose logging of serial activity
-  -q          do not print while uploading
-  -t T        timeout for -p
-  -p          print output from the Pi after uploading
-  -s          open screen on the serial port after uploading
-~~~
