@@ -14,6 +14,10 @@ environment for CS107E is to run Linux within a virtual machine. You'll
 use Windows normally, but will have a window in which a full Linux system
 is running.
 
+If you have a Mac laptop, you can install the tools directly in MacOS using
+[this guide](http://cs107e.github.io/guides/mac_toolchain/) and **do not need
+to use a virtual machine**.
+
 We've prepared a VM with Linux and all of the needed tools installed on it.
 To get it running, you'll need to do 4 things:
 
