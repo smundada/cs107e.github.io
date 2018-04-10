@@ -1,16 +1,16 @@
 language: c
 
-addons:
-    apt:
-        sources:
-            - sourceline: 'ppa:team-gcc-arm-embedded/ppa'
-        packages:
-            - gcc-arm-embedded
-
+cache:
+    directories:
+        - ~/gcc-arm-none-eabi-7-2017-q4-major/
 
 install:
+    - if [ ! "$(ls -A ~/gcc-arm-none-eabi-7-2017-q4-major)" ]; then (curl -L -s -o - https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2 | tar xjf - -C ~); fi
     - git clone https://$CLONE_TESTS_GITHUB_USERNAME:$CLONE_TESTS_GITHUB_PASSWORD@github.com/cs107e/tests.git
     - tests/setup_travis.sh
+
+before_script:
+    - export PATH=$PATH:~/gcc-arm-none-eabi-7-2017-q4-major/bin/
 
 script:
     - tests/run_travis.sh
