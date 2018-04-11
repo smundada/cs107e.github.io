@@ -264,7 +264,7 @@ While the LED is lit, make the following measurements with the multimeter.
 -   Measure and record the voltage across the resistor.
 -   Measure and record the voltage across the LED.
 
-Calculate the current flowing through the LED. You should now be able to answer the first [check in question](/checkin).
+Calculate the current flowing through the LED. You should now be able to answer the first [check in question](checkin).
 
 ### 4. Power via the Pi
 
