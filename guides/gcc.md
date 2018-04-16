@@ -63,7 +63,7 @@ block-copy a large-ish chunk of data, such as when initializing an array
 or struct or passing a struct in or out of a function. In some situations, you can rearrange your code to avoid the need for block memory transfer, e.g. assign struct fields individually rather copy the entire struct. Where unavoidable, you must supply your own implementation of `memcpy`.
 
 ### Linker options for default libraries and start files
-The linker option `-nostdlib is used to link a program intended to run standalone. `-nostdlib` implies 
+The linker option `-nostdlib` is used to link a program intended to run standalone. `-nostdlib` implies
 the individual options `-nodefaultlibs` and `-nostartfiles`. Below we discuss 
 the two options separately, but the most typical use is just `nostdlib` for one-stop shopping.
 
