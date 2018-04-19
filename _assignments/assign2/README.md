@@ -30,7 +30,7 @@ previous assignments.  This time, you will just check out the
 
 ```
 $ cd cs107e_home/assignments
-$ git fetch
+$ git fetch origin
 $ git checkout assign2-basic
 $ ls
 Makefile        assert.h        cstart.c        gpio.h          start.s         timer.c
