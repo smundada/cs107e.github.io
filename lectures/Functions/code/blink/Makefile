@@ -1,10 +1,10 @@
 # Makefile to build program from single ASM or C file
 # We will talk more about Makefiles soon!
 
-CFLAGS = -O2 -g -Wall -std=c99 -ffreestanding 
+CFLAGS = -Og -g -Wall -std=c99 -ffreestanding 
 LDFLAGS = -nostdlib -e main
 
-all : cbutton.bin button.bin cbutton.list button.list
+all : blink.bin
 
 %.bin: %.elf
 	arm-none-eabi-objcopy $< -O binary $@
@@ -21,7 +21,7 @@ all : cbutton.bin button.bin cbutton.list button.list
 %.list: %.o
 	arm-none-eabi-objdump --no-show-raw-insn -d $< > $@
 
-install: cbutton.bin
+install: blink.bin
 	rpi-install.py $<
 
 clean:
