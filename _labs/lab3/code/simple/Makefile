@@ -13,7 +13,7 @@ all : $(NAME).bin
 %.elf: %.o start.o cstart.o
 	arm-none-eabi-gcc $(LDFLAGS) $^ $(LDLIBS) -o $@
 
-%.o: %.c CS107E_IS_SET
+%.o: %.c
 	arm-none-eabi-gcc $(CFLAGS) -c $< -o $@
 
 %.o: %.s
