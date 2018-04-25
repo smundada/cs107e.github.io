@@ -43,7 +43,7 @@ ifndef CS107E
     $(error $(CS107E_ERROR_MESSAGE))
 endif
 
-.PHONY: all clean install
+.PHONY: all clean install CS107E_IS_SET
 
 .PRECIOUS: %.elf %.o
 
