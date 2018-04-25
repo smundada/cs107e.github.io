@@ -137,7 +137,7 @@ Now run it:
     6   mov r1, #1
 
 Note that we ran the first `ldr` instruction 
-and the program stopped at line 7, the `mov` instruction.
+and the program stopped at line 6, the `mov` instruction.
 
 Let's inspect all the register values
 
