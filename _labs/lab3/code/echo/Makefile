@@ -28,6 +28,10 @@ install: $(NAME).bin
 clean:
 	rm -f *.o *.bin *.elf *.list *~
 
+.PHONY: all clean install
+
+.PRECIOUS: %.elf %.o
+
 define CS107E_ERROR_MESSAGE
 ERROR - CS107E environment variable is not set.
 
@@ -38,11 +42,6 @@ To have this done automatically, add the above command to your shell
 environment configuration file (e.g. ~/.bashrc)
 endef
 
-CS107E_IS_SET:
 ifndef CS107E
-    $(error $(CS107E_ERROR_MESSAGE))
+$(error $(CS107E_ERROR_MESSAGE))
 endif
-
-.PHONY: all clean install CS107E_IS_SET
-
-.PRECIOUS: %.elf %.o

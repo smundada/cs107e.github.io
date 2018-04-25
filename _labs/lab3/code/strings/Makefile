@@ -28,21 +28,20 @@ install: $(NAME).bin
 clean:
 	rm -f *.o *.bin *.elf *.list *~
 
-define CS107E_ERROR_MESSAGE
-ERROR - CS107E environment variable is not set. 
-
-Please set it to point to the `cs107e.github.io/cs107e` directory using the
-command `export CS107E=/path/to/your/copy/of/cs107e.github.io/cs107e`. 
-
-To have this done automatically, add the above command to your shell
-environment configuration file (e.g. ~/.bashrc) 
-endef
-
-CS107E_IS_SET:
-ifndef CS107E
-	$(error $(CS107E_ERROR_MESSAGE))
-endif
-
-.PHONY: all clean install CS107E_IS_SET
+.PHONY: all clean install
 
 .PRECIOUS: %.elf %.o
+
+define CS107E_ERROR_MESSAGE
+ERROR - CS107E environment variable is not set.
+
+Please set it to point to the `cs107e.github.io/cs107e` directory using the
+command `export CS107E=/path/to/your/copy/of/cs107e.github.io/cs107e`.
+
+To have this done automatically, add the above command to your shell
+environment configuration file (e.g. ~/.bashrc)
+endef
+
+ifndef CS107E
+$(error $(CS107E_ERROR_MESSAGE))
+endif
