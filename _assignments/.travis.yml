@@ -11,6 +11,7 @@ install:
     - (cd ~/cs107e.github.io && git pull)
     - git clone https://$CLONE_TESTS_GITHUB_USERNAME:$CLONE_TESTS_GITHUB_PASSWORD@github.com/cs107e/tests.git
     - tests/setup_travis.sh
+    - export CS107E=~/cs107e.github.io/cs107e
 
 before_script:
     - export PATH=$PATH:~/gcc-arm-none-eabi-7-2017-q4-major/bin/
