@@ -343,35 +343,32 @@ int main(void)
 }
 ```
 
-The function `sum` has one fixed argument `n`,
-followed by some number of additional arguments, indicated by the `...` in its parameter list.
-The value of `n` communicates how many of those arguments there are.
-For example, the call `sum(4, 100, 0, 5, 2)` passes 4 as the first argument to indicate that there are 4 subsequent arguments.
-
-In general, variable-argument functions still require at least
-one fixed argument.
-It should be possible to determine the number of arguments
-from the first argument; `n` in this case above, or the format string in
-the case of `printf`.
-
+The function `sum` has one fixed argument `n`, followed by some number of
+additional arguments, indicated by the `...` in its parameter list.  In
+general, variable-argument functions still require at least one fixed argument.
+For example, the call `sum(4, 100, 0, 5, 2)` contains one fixed argument, 4
+(number of values to sum), and four additional arguments, 100, 0, 5, and 2.
 
 The implementation of the  `sum` function demonstrates how to use `stdarg.h`. 
 
-The variable `ap` is declared of type `va_list`.
-This variable is initialized using `va_start`, which is passed the
-last named argument. In this case, we tell `va_start` that `n` is
-the last argument before the variable arguments begin.
+The variable `ap` is declared of type `va_list`.  This variable is initialized
+using `va_start`, which is passed the last named argument. In this case, we
+tell `va_start` that `n` is the last argument before the variable arguments
+begin.
 
-Then we loop over the `n` arguments, fetching each argument using `va_arg(ap, type)`. In the `sum` example, the variable arguments are all of `int` type, but the type can be different per-argument by changing what type is used in `va_arg`.
-When we are done processing all of the variable arguments, we call `va_end(ap)` to clean up after ourselves.
+Then we loop over the `n` arguments, fetching each argument using `va_arg(ap,
+type)`. In the `sum` example, the variable arguments are all of `int` type, but
+the type can be different per-argument by changing what type is used in
+`va_arg`. When we are done processing all of the variable arguments, we call
+`va_end(ap)` to clean up after ourselves.
 
-Note that because of obscure rules in the C standard about
-"[default argument promotions](http://stackoverflow.com/questions/1255775/default-argument-promotions-in-c-function-calls)",
-you cannot ask `va_arg` for the `char` type. Instead you must ask it for an `int` and then
-cast the `int` to a `char`.
+Note that because of obscure rules in the C standard about "[default argument
+promotions](http://stackoverflow.com/questions/1255775/default-argument-promotions-in-c-function-calls)",
+you cannot ask `va_arg` for the `char` type. Instead you must ask it for an
+`int` and then cast the `int` to a `char`.
 
-For additional information about `stdarg`,
-read the [Wikipedia page on stdarg.h](http://en.wikipedia.org/wiki/Stdarg.h).
+For additional information about `stdarg`, read the [Wikipedia page on
+stdarg.h](http://en.wikipedia.org/wiki/Stdarg.h).
 
 <a name="testing"></a>
 ## Testing, testing testing! 
