@@ -36,7 +36,7 @@ define CS107E_ERROR_MESSAGE
 ERROR - CS107E environment variable is not set.
 
 Please set it to point to the `cs107e.github.io/cs107e` directory using the
-command `export CS107E=/path/to/your/copy/of/cs107e.github.io/cs107e`.
+command `export CS107E=<replace with path to your cs107e.github.io directory>/cs107e`.
 
 To have this done automatically, add the above command to your shell
 environment configuration file (e.g. ~/.bashrc)
