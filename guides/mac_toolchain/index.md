@@ -101,18 +101,47 @@ to install a few things. These instructions will guide you through those steps.
     ```
     ![USB breakout board](../images/usb.breakout.board.JPG)
 
-3.  Ensure you have `pip`, a Python package manager, installed. If you do not,
-    run `sudo easy_install pip`.
+3.  Install Miniconda
 
-4.  Install the following Python libraries using Homebrew:
+    Download and run the current Miniconda distribution on the command line:
 
     ```
-    $ sudo pip install pyserial
-    $ sudo pip install xmodem
+    $ wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+    $ bash Miniconda3-latest-MacOSX-x86_64.sh
     ```
 
-    If `sudo pip install xmodem` complains `OSError: [Errno 1]
-    Operation not permitted:
-    '/System/Library/Frameworks/Python.framework/Versions/2.7/doc'`,
-    don't worry.
+    Follow the prompts to install Miniconda and add Python to your PATH:
+
+    ```
+    ...
+    Please, press ENTER to continue
+    >>> [ENTER]
+    ...
+    <scroll down>
+    ...
+    Do you accept the license terms? [yes|no]
+    [no] >>> yes
+    ...
+       - Press ENTER to confirm the location
+       - Press CRTL-C to abort the installation
+       - Or specify a different location below
+
+    [/Users/yourusername/miniconda3] >>> [ENTER]
+    ...
+    Do you wish the installer to prepend the Miniconda3 install location
+    to PATH in your /Users/yourusername/.bash_profile ? [yes|no]
+    [yes] >>> yes
+    ```
+    
+    Finally, restart your Terminal application.
+
+4.  Install the following Python libraries:
+
+    ```
+    $ pip install pyserial xmodem
+    ```
+
+    If `pip install xmodem` complains `OSError: [Errno 1] Operation not
+    permitted: '/System/Library/Frameworks/Python.framework/Versions/2.7/doc'`
+    or similar, don't worry, the library has still installed correctly.
 
