@@ -162,7 +162,7 @@ for example, converting the number 0x85 to the string "133".
 The caller passes the arguments `buf` and  `bufsize`. `buf` points to a character array where 
 the function should write the string. `bufsize` is the size of this array. You can assume 
 that `bufsize` is not negative. Your functions should never write past the end
-of the array. If the output cannot fit, the truncate it. Don't forget that you also need
+of the array. If the output cannot fit, truncate it. Don't forget that you also need
 space for a null terminator.
 
 The `val` argument is the integer value to be converted to a string.
