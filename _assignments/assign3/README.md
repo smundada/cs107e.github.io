@@ -236,7 +236,7 @@ the format of the output.  Your implementation must support these five formattin
 
 Each formatting code is paired with an argument passed to `printf`, in order. The first
 formatting code is paired with the argument following the formatting string. The second
-formatting codei s paired with the second argument following the formatting string. 
+formatting code is paired with the second argument following the formatting string. 
 
 The basic operation of `snprintf` is to traverse the format string, copy literal characters unchanged to the output string. If it detects a formatting code, it does the appropriate conversion of the assocated argument to string form. No actual processing is need to "convert" characters and strings, so those are straightforward: copy the character or string argument to the output string. To convert an integers to a string, you have your handy `unsigned_to_base` and 
 `signed_to_base` helper functions. Pointers are just a special kind of integer (details below).
