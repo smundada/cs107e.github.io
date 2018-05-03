@@ -17,7 +17,7 @@ before_script:
     - export PATH=$PATH:~/gcc-arm-none-eabi-7-2017-q4-major/bin/
 
 script:
-    - tests/run_travis.sh
+    - python tests/run.py
 
 after_script:
     - tests/post-run.sh
