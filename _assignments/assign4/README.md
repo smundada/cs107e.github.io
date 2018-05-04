@@ -37,10 +37,16 @@ $ git fetch origin
 $ git checkout assign4-basic
 ```
 
-Double check that the latest copies of your `gpio.c`, `timer.c`, `strings.c`,
-and `printf.c` are present in the starter code.  If not, contact a CA to get
-your starter files updated.  Consult the `Makefile` for more information on
-reusing code from previous assignments.
+Consult the `Makefile` for more information on reusing code from previous
+assignments. If you do this, you should double check that the latest copies of
+your `gpio.c`, `timer.c`, `strings.c`, and `printf.c` are present in the
+starter code.  If they are out of date, there are a couple possible reason why.
+If you submitted a regrade pull request for assignment 2, you'll need to merge
+the changes from the regrade branch into your `assign4-basic` branch with `git
+merge assign2-regrade`.  Another case is if you pushed to an assign3 branch
+after assign4 was released. In this case, you can merge your later changes with
+`git merge assign3-basic`.  If your files are out of date and you don't fall
+into one of these categories, contact a staff member to get help. 
 
 The starter files for this assignment contain the modules `backtrace.c` and
 `malloc.c` (with a few bits of starter code) and the application programs
