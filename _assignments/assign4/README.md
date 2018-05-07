@@ -280,9 +280,11 @@ or a nice nap in the sun.
 
 #### Malloc specification
 
-All pointers returned by `malloc()` should be aligned to 4 bytes, the word size on our system. The most convenient way to follow the alignment rule is
+All pointers returned by `malloc()` should be aligned to 8 bytes, the word size on our system. The most convenient way to follow the alignment rule is
 to simply round up all requested sizes to a total block size (payload
-plus header) that is a multiple of 4, and lay out blocks end to end.
+plus header) that is a multiple of 8, and lay out blocks end to end. *The assignment originally
+said 4 bytes, if you round to 4 that is OK. But you might encounter bugs if you store double or
+long long (64-bit) values in dynamically allocated memory.*
 
 The `man` page for `malloc()` can be used 
 find out how to deal (or not deal) with edge cases -- what if
