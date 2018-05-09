@@ -60,6 +60,8 @@ if __name__ == "__main__":
                         action="store_true")
     parser.add_argument('-t', help="timeout for -p",
                         action="store", type=int, default=-1)
+    parser.add_argument('-T', "--total-timeout" help="Total timeout for -p (the total amount of time to listen, as opposed to -t which specifies a timeout since last receiving a byte)",
+                        action="store", type=int, default=-1)
 
     after = parser.add_mutually_exclusive_group()
     after.add_argument('-p', help="print output from the Pi after uploading",
@@ -161,12 +163,15 @@ You should probably restart the Pi, since you interrupted it mid-load.
     printq(bcolors.OKGREEN + "\nSuccessfully sent!" + bcolors.ENDC)
     stream.close()
 
-    last_comm = time.time()
+    initial_comm = last_comm = time.time()
     if args.p:  # after sending, -p will loop and echo every char received
         try:
             while True:
                 if args.t > 0 and time.time() - last_comm > args.t:
                     printq("\nrpi-install.py: waited %d seconds with no data received from Pi. Detaching." % args.t)
+                    break
+                if args.T != -1 and time.time() - initial_comm > args.T:
+                    printq("\nrpi-install.py: ran for a total of %d seconds. Detaching." % args.T)
                     break
 
                 c = getc(1)
