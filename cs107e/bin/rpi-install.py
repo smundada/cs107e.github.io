@@ -60,7 +60,7 @@ if __name__ == "__main__":
                         action="store_true")
     parser.add_argument('-t', help="timeout for -p",
                         action="store", type=int, default=-1)
-    parser.add_argument('-T', "--total-timeout", help="Total timeout for -p (the total amount of time to listen, as opposed to -t which specifies a timeout since last receiving a byte)",
+    parser.add_argument('-T', help="Total timeout for -p (the total amount of time to listen, as opposed to -t which specifies a timeout since last receiving a byte)",
                         action="store", type=int, default=-1)
 
     after = parser.add_mutually_exclusive_group()
