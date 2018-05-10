@@ -47,7 +47,8 @@ assign3-regrade`). If you implemented an extension for `assign4`, the
 you'd like to revert your `malloc.c` back to your basic submission (e.g. if
 there was a bug introduced by your extension attempt), you can do this with
 `git checkout assign4-basic -- malloc.c`.  This checks out the single file,
-`malloc.c` from the `assign4-basic` branch.
+`malloc.c` from the `assign4-basic` branch. You'll need to stage and commit
+file.
 
 Consult the `Makefile` for more information on reusing code from previous
 assignments. You might want to start by implementing your assignment using the
