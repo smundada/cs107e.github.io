@@ -74,6 +74,15 @@ program `test/test_keyboard.c`.
   this `tests/test_keyboard.c` will be used to generate a test binary that will
   be installed by `make test`.
 
+Assignment 4 was the first instance of an extension that required changes
+that could introduce bugs into your basic code.  If you implemented an
+extension for `assign4`, the `assign5-basic` branch was based off your
+`assign4-extension` branch. If you'd like to revert your `malloc.c` back to
+your basic submission (e.g. if there was a bug introduced by your extension
+attempt), you can do this with `git checkout assign4-basic -- malloc.c`.
+This checks out the single file, `malloc.c` from the `assign4-basic` branch.
+You'll need to stage and commit the file normally.
+
 One final note is that the initial tests in `tests/test_keyboard.c` are not
 assertion-based as in previous assignments.  These tests just print what is
 returned by your functions. It is up to you to verify that those outputs are
