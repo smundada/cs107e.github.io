@@ -193,7 +193,7 @@ Note that many scancodes do not correspond to keys at all;
 those entries are indicated by a special struct `UNUSED`.
 
 Additionally the file `ps2.h` defines various useful constants 
-such as `PS2_CODE_RELEASE = 0xF0`, and `PS2_CODE_EXTENDED = 0xE0` and codes for the modifier keys such as SHIFT and ALT.
+such as `PS2_CODE_RELEASE = 0xF0`, and `PS2_CODE_EXTEND = 0xE0` and codes for the modifier keys such as SHIFT and ALT.
 There are also constants for the character values assigned to the special keys
 such as HOME and F1.
 
