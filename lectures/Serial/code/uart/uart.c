@@ -54,7 +54,7 @@ void uart_init(void) {
                  MINI_UART_IIR_TX_FIFO_ENABLE;
 
     uart->baud =  270; // baud rate ((250,000,000/115200)/8)-1 = 270
-
+    
     /*
     ** from gpio.h
     **
