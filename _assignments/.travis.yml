@@ -1,5 +1,8 @@
 language: c
 
+git:
+  depth: false
+
 cache:
     directories:
         - ~/gcc-arm-none-eabi-7-2017-q4-major/

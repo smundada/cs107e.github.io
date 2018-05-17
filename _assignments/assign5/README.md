@@ -41,14 +41,14 @@ Like all the assignments in the course, this assignment builds on the modules
 you have written previously.  Check the files in your `assign5-basic`
 (`gpio.c`, `timer.c`, `strings.c`, `printf.c` `malloc.c` and `backtrace.c`) to
 ensure that you have the latest copy.  If you have missing changes from a
-previous assignment branch or a regrade branch, merge them in (e.g. `git merge
-assign3-regrade`). If you implemented an extension for `assign4`, the
-`assign5-basic` branch will be based off your `assign4-extension` branch. If
-you'd like to revert your `malloc.c` back to your basic submission (e.g. if
-there was a bug introduced by your extension attempt), you can do this with
-`git checkout assign4-basic -- malloc.c`.  This checks out the single file,
-`malloc.c` from the `assign4-basic` branch. You'll need to stage and commit
-file.
+previous assignment branch (e.g. commits from a regrade submission), merge them
+in (e.g. `git merge assign3-extension`). If you implemented an extension for
+`assign4`, the `assign5-basic` branch will be based off your
+`assign4-extension` branch. If you'd like to revert your `malloc.c` back to
+your basic submission (e.g. if there was a bug introduced by your extension
+attempt), you can do this with `git checkout assign4-basic -- malloc.c`.  This
+checks out the single file, `malloc.c` from the `assign4-basic` branch. You'll
+need to stage and commit file.
 
 Consult the `Makefile` for more information on reusing code from previous
 assignments. You might want to start by implementing your assignment using the
