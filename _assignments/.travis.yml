@@ -1,5 +1,9 @@
 language: c
 
+# Hack that allows us to retrieve the starter code commit by inspecting the
+# entire git history for the CS107E bot commits (since travis trims commit
+# history by default). This should be removed now that deploy creates a
+# assignX-starter branch which can be used to retrieve the starter code commit
 git:
   depth: false
 
