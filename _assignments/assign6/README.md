@@ -204,6 +204,10 @@ the graphical shell be slow to process keys?
 Extend the graphics library so that you can draw anti-aliased lines and
 triangles. Make sure to follow the function prototypes given in `gl.h`.
 
+Remember to create an `assign6-extension` branch based off your `assign6-basic`
+branch with `git checkout -b assign6-extension` (this assumes you currently
+have your basic branch checked out).
+
 This extension is true extra credit
 and requires you to learn about line drawing algorithms.
 A good starting point is the

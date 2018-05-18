@@ -371,6 +371,10 @@ Check out the
 
 The extension consists of two parts. You should do both parts.
 
+Remember to create an `assign5-extension` branch based off your `assign5-basic`
+branch with `git checkout -b assign5-extension` (this assumes you currently
+have your basic branch checked out).
+
 1.  **Command-line editing**
 
     Implement the left and right arrow keys to move the cursor within the current line and then allow inserting and deleting characters at the point of the cursor. What other editing features might be nice to have:  Ctrl-a and ctrl-e to move the cursor to the first and last character of the line? Ctrl-u to delete the entire line? Implement your favorite vim/emacs/editor must-haves!
