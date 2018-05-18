@@ -35,7 +35,7 @@ void extract_line_from_char(int letter, int line, char *buffer)
 
 void main(void)
 {
-    printf("Type (on the external keyboard!) a line of ten or fewer characters, then press return!\n");
+    printf("Type (on the external keyboard!) a line of %d or fewer characters, then press return!\n",MAX_LINE);
     keyboard_init();
     while (1) {
         char letters[MAX_LINE];
@@ -43,7 +43,7 @@ void main(void)
         while (1) {
             char letter = keyboard_read_next();
             if (letter == '\n') break;
-            if (line_index >0 && letter == '\b') {
+            if (line_index > 0 && letter == '\b') {
                 printf("\b \b");
                 line_index--;
                 continue;
@@ -54,6 +54,7 @@ void main(void)
             //print_letter(letter);
         }
         printf("\n\n");
+        //continue;
 
         int font_width = font_get_width();
         int font_height = font_get_height();
