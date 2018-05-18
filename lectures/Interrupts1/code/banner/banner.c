@@ -6,7 +6,9 @@
 #include "printf.h"
 #include "keyboard.h"
 
-#define MAX_LINE 10
+#define MAX_LINE 6
+
+//#define DEBUG
 
 void print_letter(int letter)
 {
@@ -43,6 +45,7 @@ void main(void)
         while (1) {
             char letter = keyboard_read_next();
             if (letter == '\n') break;
+#ifndef DEBUG
             if (line_index > 0 && letter == '\b') {
                 printf("\b \b");
                 line_index--;
@@ -51,10 +54,14 @@ void main(void)
             if (line_index == MAX_LINE) continue;
             letters[line_index++] = letter;
             printf("%c",letter);
-            //print_letter(letter);
+#else
+            print_letter(letter);
+#endif
         }
         printf("\n\n");
-        //continue;
+#ifdef DEBUG
+        continue;
+#endif
 
         int font_width = font_get_width();
         int font_height = font_get_height();
