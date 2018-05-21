@@ -192,7 +192,7 @@ making any calls to `gl` or `fb` functions).
 
 ### 5) Shell + console = magic!
 
-The provided `main.c` calls your `shell_init` passing
+The provided `console_shell.c` calls your `shell_init` passing
 `console_printf` in place of the serial uart printf used in assignment 5. With that simple change, you should now have a graphical version of the shell you wrote in assignment 5!
 
 If the shell feels slow or drops keys as you're typing, don't
