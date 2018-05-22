@@ -62,16 +62,7 @@ such that the button's output feeds into GPIO pin 25.
 What we want is for the pin to default to being high (1).
 When we press the button, it should go low (0).
 
-The way to do this is to make the pin have a "pull-up resistor". 
-(We won't use a *physical* resistor;
-instead, we'll tell the Pi to set one up for us.)
-This means that when the pin is in an open circuit (the
-button is not pressed), it will default to a value of 1.
-When the button is pressed,
-we want to close a circuit that connects the pin to ground, 
-so it will read a 0. This is like what the PS/2 keyboard does.  
-You should simply need to connect one side of the button to ground,
-and the other side of the button to GPIO pin 25.
+The way to do this is to make the pin have a "pull-up resistor".  (We won't use a *physical* resistor; instead, we'll tell the Pi to set one up for us.) This means that when the pin is in an open circuit (the button is not pressed), it will default to a value of 1.  When the button is pressed, we want to close a circuit that connects the pin to ground, so it will read a 0. This is like what the PS/2 keyboard does.  You should simply need to connect one side of the button to ground, and the other side of the button to GPIO pin 25.
 
 <img title="Button circuit" src="images/button-circuit.jpg" width="300">
 
@@ -120,9 +111,14 @@ We've already written this code for you in `setup_interrupts`:
 you simply need to call it.
 Ensure you understand what every line does and why it's necessary. 
 
-Make a `static int` counter named `cnt` in your `button.c`.
-How should you declare that
-counter for the compiler?
+Make a `static int` counter named `cnt` in your `button.c`. Your interrupt
+handler is going to increment `cnt`. Your main loop will have an
+infinite loop that reads `cnt`, compares to the last read value of `cnt`,
+and prints the new value if it has changed. 
+
+1. Should `cnt` be declared volatile? Why or why not? Can the compiler tell,
+by looking at only this file, that your interrupt handler function is
+called within an interrupt handler?
 
 Now write the interrupt handler `button_press`. The key job of the interrupt handler is check whether this event is indeed the one this handler is intended to process and if so, it should process the event and clear the interrupt. 
 
@@ -137,14 +133,13 @@ counter is printed when it is incremented by the interrupt handler.
 
 Now, edit your interrupt handler to comment out whatever call you are using to clear the event status. Compile and run the program and see how this changes the program's behavior. What changes and why?
 
-When you're done, discuss the following questions.
+When you're done, discuss and answer the following questions with your 
+neighbors.
 
 1. Describe what is done by each line of code in the `setup_interrupts` function. What would be the effect of removing that line?
 
 2. What happens if the interrupt event is not cleared before returning from the
    handler?
-
-You are now ~60% through the lab! Keep going! 👏
 
 #### 4) Use a ring buffer (10 min)
 
@@ -228,7 +223,7 @@ Repeat
 this process, each time advancing from the best version so far and
 making another small change.
 
-You may make use of the assumption that the string buffers our `strcpy`
+You may assume that the string buffers our `strcpy`
 functions will process are multiples of 16 bytes in size and are
 16-byte aligned.
 
@@ -249,29 +244,13 @@ ouch! Most optimization focuses on reducing the constant factors for an algorith
 with a given big-O, but if you can restructure into a better big-Oh, that is
 generally a much bigger win.
 
-+ The two string traversals (once to get length, again to copy) can be unified
-into one traversal that stops after copying the null char. What improvement
-would you expect from this change? Try it out and see what difference it makes.
-
-+ Will replacing array subscripts with pointer arithmetic help, e.g. `src[i]`
-into `*(src + i)`? What about walking a pointer down the string rather than
-accessing each char relative to start? Try these changes out. What gain do you
-see?
-
-+ Copying chunk of more than one byte has to be a win, right? Let's try it out -- rewrite the loop
-to copy in chunks of size word rather than a single byte. The chunking gets a
-little tricky as string length might not be multiple of the chunk size, creating
-leftover to process at end. More critically, when iterating by word, the loop
-still has to examine each byte in the current word to check for presence of a
-null terminator, even though the whole goal was to avoid single-bytes and
-consolidate into chunks! Read [some advice from the bit twiddler](http://bits.stephan-brumme.com/null.html) to learn a nifty way to
-efficiently find a null byte within a word. Talk to your lab partner to
-understand how this bitwise approach works. Now try out the code and see how it
-fares. (Note: last iteration by word might read beyond proper end of string's
-memory -- is this read guaranteed to be safe? Always dangerous? Why or why not?)
-
-+ Try hand-unrolling the loop two or four times to better amortize loop
-overhead. ([This is what we mean by unrolling.](https://en.wikipedia.org/wiki/Loop_unrolling#A_simple_manual_example_in_C)) What gain do you see?
++ Next think about where the function spends time. Recall that each instruction 
+takes a cycle: are there ways to change the function so that it does the 
+same work with fewer instructions? Take a look at the assembly to see where
+the effort is going. In the starter implementation, only a small fraction
+of the instructions actually copy the string: the rest are incrementing, 
+branching, etc. How could you change the loop to issue fewer of these
+overhead instructions?
 
 How big of an improvement were you able to make overall?
 
