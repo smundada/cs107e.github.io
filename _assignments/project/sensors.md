@@ -2,6 +2,7 @@
 layout: page
 title: 'Sensors for Projects'
 permalink: /assignments/project/sensors
+released: true
 ---
 
 The following sensors 
