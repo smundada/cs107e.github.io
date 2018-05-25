@@ -8,7 +8,7 @@ toc: true
 
 *Written by Philip Levis, updated by Julie Zelenski*
 
-**Due: Tue, May 29, 2018 at 6:00 PM**
+**Due: Wed, May 30, 2018 at 6:00 PM**
 
 ![Google Console](images/google.png)
 
