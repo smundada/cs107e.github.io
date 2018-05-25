@@ -35,7 +35,7 @@ There are a few important deliverables:
    - Milestone for week 10 (1 week left to finish)
    - Resources needed
 
-   Each project team has a budget of $50 for hardware.
+   Each project team has a budget of $20 per person for hardware.
    Please send us an email if you would like to buy anything.
    Be aware that if you need to mail order parts, it can take time,
    so figure out what you need ASAP and place the order.
