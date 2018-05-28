@@ -254,8 +254,7 @@ application, with its own `Makefile` and everything.
 
 Copy the starter project files in
 `cs107e.github.io/_assignments/assign7/libmypi-usage` into `paint`,
-and copy your finished `libmypi.a` in as well. Edit the CS107E path in the
-Makefile.
+and copy your finished `libmypi.a` in as well.
 
 Make sure you can build and run the "Hello, world" application right
 now.
