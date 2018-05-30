@@ -260,8 +260,8 @@ Make sure you can build and run the "Hello, world" application right
 now.
 
 Let's start implementing mouse support. Read these pages on the
-[PS/2 protocol](http://www.computer-engineering.org/ps2protocol/) and
-[PS/2 mouse specifically](http://www.computer-engineering.org/ps2mouse/)
+[PS/2 protocol](https://web.archive.org/web/20180124072221/http://www.computer-engineering.org/ps2protocol/) and
+[PS/2 mouse specifically](https://web.archive.org/web/20171214135004/http://www.computer-engineering.org/ps2mouse/)
 for details on how to talk to a mouse.
 
 Connect your mouse clock to GPIO pin 25 and mouse data to GPIO
