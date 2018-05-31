@@ -9,8 +9,6 @@ The following sensors are available for you to use in your projects in addition
 to the peripherals you have worked with during this quarter. Let us know if
 you want to use them!
 
-**Note: list is under construction.**
-
 ## Analog
 
 Unfortunately, the Raspberry Pi does not have a digital-to-analog convertor
@@ -23,13 +21,15 @@ We have example code showing how to use that chip.
 
 * Sliding potentiometers
 
-* Analog joysticks
-
 * Piezo sensors
-
-* AH3503/UGN3503 Ratiometric Linear Hall Effect sensors
-(voltage proportional to magnetic field)
 -->
+
+* Analog joystick
+
+* Analog Hall Effect sensor
+(voltage proportional to magnetic field)
+
+* Temperature sensor
 
 ## Optical
 
@@ -44,16 +44,29 @@ We have example code showing how to use that chip.
 * [BPV11 NPN Phototransistors](http://www.mouser.com/ProductDetail/Vishay-Semiconductors/BPV11/?qs=%2Fjqivxn91ccQSntIBLifOQ%3D%3D)
 
 * [BPW77NB NPN Phototransistors](http://www.mouser.com/ProductDetail/Vishay-Semiconductors/BPW77NB/?qs=sGAEpiMZZMs50KUSuyRkpr0bn2hcYGU5%252brfx68goEwU%3d)
--->
-
-* [TSOP 43838 38 KHz IR detectors](https://www.digikey.com/product-detail/en/vishay-semiconductor-opto-division/TSOP34838/751-1386-5-ND/1768188)
-
-<!--
-* Photo-interrupters
 
 * HC_SR501 Infrared PIR Motion sensors
 -->
 
+* [TSOP 43838 38 KHz IR detectors](https://www.digikey.com/product-detail/en/vishay-semiconductor-opto-division/TSOP34838/751-1386-5-ND/1768188)
+
+* IR emission/sensor modules
+
+* Flame sensor module (760-1100 nm IR detector)
+
+* RGB LED module
+
+* RGB LED SMD module
+
+* 7 color flash LED
+
+* 2 color LED module
+
+* Laser emitter module
+
+* Photoresistor module
+
+* Photointerruptor module
 
 ## Audio
 
@@ -63,19 +76,39 @@ We have example code showing how to use that chip.
 
 * HC-SR04 Ultrasonic Sensor/Distance Measuring modules (time of flight)
 
+* Microphone sound detection modules (digital threshold and analog outputs)
+
+
 ## Digital
 
 <!--
-* Reed Switches
-
 * Rotary switches
-
-* Rotary encoders
 -->
+
+* Reed switches
+
+* Ball switch
+
+* Rotary encoder module
 
 * A1104LUA-T Hall Effect sensor
 (schmitt trigger followed by open collector transistor)
 
+* Relay switch module
+
+* Touch sensor module
+
+* Temperature module
+
+* Buzzer (active and passive) modules
+
+* Shock (vibration switch) sensor module
+
+* Tap (vibration switch) module
+
+* Obstacle avoidance module
+
+* 7-segment displays
 
 ## I2C
 
@@ -92,23 +125,21 @@ We have example code showing how to use that chip.
 
 ## SPI
 
+* MCP3008 Analog-to-Digital convertor
+
+* DS18B20 Temperature sensor module (not pure SPI)
+
+* [Arducam 2-Megapixel Cameras](http://www.amazon.com/gp/product/B012UXNDOY)
+
 <!--
 * HC595 SIPO shift registers (for output)
 
 * HC165 PISO shift registers (for input)
--->
 
-* MCP3008 Analog-to-Digital convertor
-
-<!--
 * MCP4921 Digital-to-Analog convertor
 
 * MCP4922 Dual Digital-to-Analog convertor
 
 * MCP4162 Digital potentiometer
-
-* DHT22 Temperature-Humidity Sensors (not pure SPI)
-
-* [Arducam 2-Megapixel Cameras](http://www.amazon.com/gp/product/B012UXNDOY)
 -->
 
