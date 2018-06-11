@@ -61,12 +61,12 @@ There are a few important deliverables:
    The demos are scheduled during the final exam period.
    Each group should prepare a short demonstration of the project.
 
-5. **Project code and writeup: due Tue, June 12 at 11:59 PM**
+5. **Project code and writeup: due Wed, June 13 at 11:59 PM**
 
    You should be using the github repository for coordinating the
    work amongst your team.
    As such, you should be regularly checking in and out code.
-   The final commit of your code must be received by 11:59 pm on Tue June 12.
+   The final commit of your code must be received by 11:59 pm on Wed June 13.
 
    Create a short writeup about your project
    and place it in README.md.
