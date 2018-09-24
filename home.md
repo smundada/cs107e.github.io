@@ -1,10 +1,10 @@
 ---
 layout: page
-title: Spring 2018
+title: Autumn 2018
 permalink: index.html
 ---
 
-### Welcome to the Spring 2018 offering of CS107e!
+### Welcome to the Autumn 2018 offering of CS107e!
 
 CS107 is the third course in Stanford's introductory programming sequence.
 CS106 provides students 
@@ -46,10 +46,10 @@ All class announcements will be posted on
 
 ### Course Info
 
-  -   **Lectures:** Mon & Fri 10:30 AM-11:50 PM, Gates B12
-  -   **Labs**: Tue & Wed 6:30pm-8:30pm, Gates B21 
+  -   **Lectures:** Mon & Fri 11:30 AM-12:50 PM, Gates B12
+  -   **Labs**: Mon 1:00pm-3:00pm & Fri 9:00am-11:00am, Gates B21 
   -   **Lecturers**: Chris Gregg, Phil Levis
-  -   **CAs**: Jean-Luc Watson, Lenny Truong
+  -   **CAs**: Jennifer Lin, Eric Yang
   -   **Section Leaders**: Jane Lange, Matt Trost
   -   **Office Hours**: [Google Calendar](https://calendar.google.com/calendar/embed?src=r5h192gc1brdgdsc6qponi76io%40group.calendar.google.com&ctz=America%2FLos_Angeles)
 
