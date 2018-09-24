@@ -8,7 +8,7 @@ toc: true
 
 *Written by Omar Rizwan*
 
-**Deadline:** Monday, April 9, 2018 at 5:00 PM
+**Deadline:** Friday, September 28, 2018 at 9:00 AM
 
 **No late days can be used on this assignment.**
 
