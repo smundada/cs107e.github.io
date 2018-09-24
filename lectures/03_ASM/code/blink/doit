@@ -1,9 +1,0 @@
-cpp -P blink.s | arm-none-eabi-as -o blink.o
-
-arm-none-eabi-objcopy blink.o -O binary blink.bin
-
-
-
-
-
-
