@@ -8,7 +8,7 @@ toc: true
 
 *Written by Omar Rizwan*
 
-**Deadline:** Friday, September 28, 2018 at 9:00 AM
+**Deadline:** Thursday, September 27, 2018 at 12:00 PM
 
 **No late days can be used on this assignment.**
 
@@ -225,18 +225,20 @@ Switched to a new branch 'assign0-basic'
 
 There are two lab sections that meet every week of the quarter:
 
-- Tuesday, 6:30-8:30 PM
-- Wednesday, 6:30-8:30 PM
+- Monday, 1:00-3:00 PM
+- Friday, 9:00-11:00 AM
 
 Open `lab.txt` in your favorite text editor and replace the contents with one
 of the following four options. **Make sure you use the exact same text**.  Your
 submission will be processed by an automated tool that expects these exact
-strings.
+strings. For example, if you have preference for Monday but could go on Friday,
+`lab.txt` should have one line that says `Monday`. If you can only make Friday,
+then the file should hold a single line that says `Friday, can't make Monday`.
 
-- `Tuesday`
-- `Tuesday, can't make Wednesday`
-- `Wednesday`
-- `Wednesday, can't make Tuesday`
+- `Monday`
+- `Monday, can't make Friday`
+- `Friday`
+- `Friday, can't make Monday`
 
 Save the file.
 
