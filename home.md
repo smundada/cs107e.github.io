@@ -51,7 +51,7 @@ All class announcements will be posted on
   -   **Lecturers**: Chris Gregg
   -   **CAs**: Jennifer Lin, Eric Yang
   -   **Section Leaders**: Jane Lange, Matt Trost
-  -   **Office Hours**: [Google Calendar](https://calendar.google.com/calendar/embed?src=r5h192gc1brdgdsc6qponi76io%40group.calendar.google.com&ctz=America%2FLos_Angeles)
+  -   **Office Hours**: [Google Calendar](https://calendar.google.com/calendar/embed?src=r5h192gc1brdgdsc6qponi76io%40group.calendar.google.com&ctz=America%2FLos_Angeles&mode=week)
 
 <!--
 ### Office Hours
