@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.7.0">
+<eagle version="9.1.3">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5304,6 +5304,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <part name="GND" library="SparkFun-Connectors" library_urn="urn:adsk.eagle:library:513" deviceset="CONN_01" device="" package3d_urn="urn:adsk.eagle:package:38028/1" value=" "/>
 <part name="RESET" library="switch" library_urn="urn:adsk.eagle:library:380" deviceset="55?-1LED" device="01" package3d_urn="urn:adsk.eagle:package:27757/1"/>
 <part name="R1" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0309/12" package3d_urn="urn:adsk.eagle:package:26089/1" value="1000"/>
+<part name="R2" library="resistor" library_urn="urn:adsk.eagle:library:348" deviceset="R-US_" device="0309/12" package3d_urn="urn:adsk.eagle:package:26089/1" value="1000"/>
 </parts>
 <sheets>
 <sheet>
@@ -5318,6 +5319,7 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <instance part="RESET" gate="-1" x="38.1" y="27.94"/>
 <instance part="RESET" gate="-LED" x="53.34" y="12.7" rot="R90"/>
 <instance part="R1" gate="G$1" x="30.48" y="12.7"/>
+<instance part="R2" gate="G$1" x="73.66" y="33.02"/>
 </instances>
 <busses>
 </busses>
@@ -5356,6 +5358,9 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <wire x1="71.12" y1="50.8" x2="71.12" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="DATA" gate="G$1" pin="1"/>
 <wire x1="71.12" y1="35.56" x2="78.74" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="2"/>
+<wire x1="78.74" y1="35.56" x2="78.74" y2="33.02" width="0.1524" layer="91"/>
+<junction x="78.74" y="35.56"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -5387,7 +5392,11 @@ Source: http://www.murata.com .. GRM43DR72E224KW01.pdf</description>
 <segment>
 <pinref part="RESET" gate="-1" pin="NO"/>
 <pinref part="5V" gate="G$1" pin="1"/>
-<wire x1="43.18" y1="25.4" x2="78.74" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="25.4" x2="68.58" y2="25.4" width="0.1524" layer="91"/>
+<pinref part="R2" gate="G$1" pin="1"/>
+<wire x1="68.58" y1="25.4" x2="78.74" y2="25.4" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="33.02" x2="68.58" y2="25.4" width="0.1524" layer="91"/>
+<junction x="68.58" y="25.4"/>
 </segment>
 </net>
 </nets>
