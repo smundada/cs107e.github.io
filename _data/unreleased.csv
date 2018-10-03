@@ -1,33 +1,33 @@
 permalink,title,released
-"/assignments/assign2/","Assignment 2: Implement a Clock",false
-"/assignments/assign3/","Assignment 3: Implement a String Formatting Library",false
-"/assignments/assign4/","Assignment 4: Backtrace and Malloc",false
-"/assignments/assign5/","Assignment 5: Keyboard and Simple Shell",false
-"/assignments/assign6/","Assignment 6: Graphics Library and Console",false
-"/assignments/assign7/","Assignment 7: System Monitor with Interrupts",false
-"/assignments/project/","Project Guide",false
-"/labs/lab2/","Lab 2: Below C Level",false
-"/labs/lab3/","Lab 3: Debugging and Testing",false
 "/labs/lab4/","Lab 4: Linked and Loaded",false
 "/labs/lab5/","Lab 5: Keyboard Surfin",false
-"/labs/lab6/","Lab 6: Drawing into the Framebuffer",false
-"/labs/lab7/","Lab 7: Raspberry Pi, Interrupted",false
 "/labs/projectlab1/","Project Lab 1: What is Your Project?",false
+"/labs/lab3/","Lab 3: Debugging and Testing",false
+"/labs/lab6/","Lab 6: Drawing into the Framebuffer",false
 "/labs/projectlab2/","Project Lab 2: How Are You Doing?",false
-"","ARM Processor and Memory Architecture Lecture",false
-"","C2: Pointers and Arrays",false
-"","Functions",false
-"","Communication: The Serial Protocol and ASCII Character Codes",false
-"","Modules and Libraries: Linking",false
-"","Memory Management",false
-"","C-mastery",false
-"","Keyboards and the PS/2 Protocol",false
-"","",false
+"/labs/lab7/","Lab 7: Raspberry Pi, Interrupted",false
+"/labs/lab2/","Lab 2: Below C Level",false
 "","Interrupts",false
-"","Interrupts and Concurrency",false
-"","Sensors",false
+"","Modules and Libraries: Linking",false
 "","Performance",false
+"","Keyboards and the PS/2 Protocol",false
 "","Wrap Up",false
+"","C2: Pointers and Arrays",false
 "","Computer Arithmetic: Signed and unsigned numbers",false
-"","Git Workflow",false
+"","Communication: The Serial Protocol and ASCII Character Codes",false
+"","Sensors",false
 "","Sound",false
+"","Git Workflow",false
+"","Memory Management",false
+"","Interrupts and Concurrency",false
+"","Functions",false
+"","C-mastery",false
+"","",false
+"","ARM Processor and Memory Architecture Lecture",false
+"/assignments/assign5/","Assignment 5: Keyboard and Simple Shell",false
+"/assignments/assign7/","Assignment 7: System Monitor with Interrupts",false
+"/assignments/assign2/","Assignment 2: Implement a Clock",false
+"/assignments/project/","Project Guide",false
+"/assignments/assign4/","Assignment 4: Backtrace and Malloc",false
+"/assignments/assign6/","Assignment 6: Graphics Library and Console",false
+"/assignments/assign3/","Assignment 3: Implement a String Formatting Library",false

@@ -109,6 +109,7 @@ to install a few things. These instructions will guide you through those steps.
     $ wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
     $ bash Miniconda3-latest-MacOSX-x86_64.sh
     ```
+    (If wget doesn't work, type 'brew install wget')
 
     Follow the prompts to install Miniconda and add Python to your PATH:
 
