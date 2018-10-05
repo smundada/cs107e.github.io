@@ -16,6 +16,7 @@ str r1, [r0]
 
 // delay
 mov r2, #DELAY
+nop
 wait1:
     subs r2, #1
     bne wait1
@@ -23,9 +24,12 @@ wait1:
 // set GPIO 20 low
 ldr r0, CLR0
 str r1, [r0] 
-
 // delay
 mov r2, #DELAY
+
+nop
+nop
+nop
 wait2:
     subs r2, #1
     bne wait2
