@@ -16,7 +16,6 @@ str r1, [r0]
 
 // delay
 mov r2, #DELAY
-nop
 wait1:
     subs r2, #1
     bne wait1
@@ -27,9 +26,6 @@ str r1, [r0]
 // delay
 mov r2, #DELAY
 
-nop
-nop
-nop
 wait2:
     subs r2, #1
     bne wait2
