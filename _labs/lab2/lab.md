@@ -37,8 +37,8 @@ To prepare for this lab, you should do the following.
    on setting up makefiles for cross-development
    on the Pi.
 
-3. Read [section 4.1 of this lab](#crossref) on the theory of operation
-   for 7-segment displays. It may also help to skim the rest of section 4
+3. Read [section 1.1 of this lab](#crossref) on the theory of operation
+   for 7-segment displays. It may also help to skim the rest of section 1
 
 4. Clone the lab repository found at `https://github.com/cs107e/lab2`
 
