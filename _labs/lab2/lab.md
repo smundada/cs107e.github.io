@@ -48,149 +48,10 @@ You will be doing a lot of breadboarding in the this lab. If you have your own t
 
 Pull up the lab [check-in](checkin) for the questions for which we want you to jot down answers and discuss with the TA when checking out at the end of lab. We don't grade you on correctness or collect your answers; we check in with each of you to make sure you've completed the lab and understand the concepts.
 
-### 1. C to assembly (0:00 - 0:20)
-
-The goal of this exercise is to understand how C is translated 
-into assembly language. You won't likely hand-code that much assembly, but you will often spend time __reading__ assembly, so the focus is on gaining reading familiarity.
-
-We want you to have an understanding of 
-how the compiler generates assembly from C
-and be able to inspect that assembly to better understand 
-the execution of a program.
-As we will see, sometimes the assembly
-produced by the C compiler can be surprising. 
-Using your ARM superpowers, you can dig into the generated 
-assembly and figure out what the compiler did, instead of sitting 
-there dumbfounded when an executing program does not behave as expected!
-
-Go to the `lab2/code/codegen` directory. Open the `codegen.c` source file in
-your text editor. The file contains four parts that explore different aspects of C: arithmetic, if/else, loops, and pointers.
-
-Skim the C code and read the comments we provide. To see how that C is translated by the compiler, you can run `make` and  open the `codegen.list` file, but it's a bit faster (and definitely more fun!) to
-play with the online Compiler Explorer we used in lecture.
-
-Bring up the [Compiler Explorer](https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'//+Type+your+code+here,+or+load+an+example.%0Aint+square(int+num)+%7B%0A++++return+num+*+num%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:arm541,filters:(b:'0',binary:'1',commentOnly:'0',demangle:'0',directives:'0',execute:'1',intel:'0',trim:'0'),lang:c%2B%2B,libs:!(),options:'-Og+-ffreestanding+-marm',source:1),l:'5',n:'0',o:'ARM+gcc+5.4.1+(none)+(Editor+%231,+Compiler+%231)+C%2B%2B',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4) in a browser window. Choose the compiler `ARM gcc 5.4.1 (none)` and enter flags `-Og -ffreestanding -marm`.  This gives you a close approximation of our compiler version/environment (although not an exact match). Paste each part
-from `codegen.c` into the Compiler Explorer window and read through the generated assembly to understand the compiler's translation. Use the comments in the C source code as your guide for what to watch for. 
-
-Keep in mind that a great way to learn how a system works is by trying
-things. Curious about some C code is translated to assembly? Try it out and see. Let your curiosity be your guide!
-
-### 2. Makefiles (0:20 - 0:35)
-
-Break into pairs and read the following Makefile.
-
-```
-    NAME = blink
-
-    CFLAGS = -g -Wall -Og -std=c99 -ffreestanding
-    LDFLAGS = -nostdlib -e main
-
-    all: $(NAME).bin
-     
-    %.bin: %.elf
-        arm-none-eabi-objcopy $< -O binary $@
-
-    %.elf: %.o
-        arm-none-eabi-gcc $(LDFLAGS) $< -o $@
-
-    %.o: %.c
-        arm-none-eabi-gcc $(CFLAGS) -c $< -o $@
-    
-    %.list: %.o
-        arm-none-eabi-objdump -d $< > $@
-
-    install: $(NAME).bin
-        rpi-install.py $<
-
-    clean:
-        rm -f *.o *.elf *.bin *.list
-```
-
-Discuss and document all the various features and syntactical
-constructs used in this Makefile.
-
- - What do each of the CFLAGS do?
- - What happens if you just type `make`? Which commands will execute?
- - If you modify blink.c and run `make` again, which commands will rerun?
-What part of each target indicates the prerequisites? (A prerequisite means 
-that if that file changes, then the target is stale and must be rebuilt)
- - What do the symbols `$<` and `$@` mean?
-
-You should be able to answer the [first check-in question](checkin) now.
-
-### 3. Testing (0:35 - 0:50)
-
-As you write more complicated programs, you'll want to test
-them; keeping track of what parts of the program work and what parts don't is essential
-to debugging effectively. Starting with assignment 2, we'll provide you with some 
-automated tests and tools you can use to write your own tests.
-Let's walk through a simple example with tests.
-
-#### A buggy program
-
-Go to the `lab2/code/testing` directory in your terminal.
-
-Look at the simple program in `testing.c` that defines a (buggy) `is_odd` function. The `main()` function is tries `is_odd` on a variety of inputs and uses `assert()` to validate that the result was correct.  If result was correct, the assert succeeds and the program continues on normally. If the result was incorrect, the assert fails and raises an error. 
-
-We can use `assert()` to test that our program is working as expected.
-If we pass in an expression that we're *expecting* to be true and `assert()` throws an error, we know that we have a bug
-in our program. If our program is working correctly, our assert statements should return smoothly.
-
-Take a moment to answer the [second check-in question](checkin).
-
-#### Build the program
-
-Now run `make`.
-
-Running `make` will generate both `testing.bin` and
- `testing.list`. To produce `testing.bin`, the computer needs to
-_compile_ `testing.c` to `testing.o`, then _link_ that `.o` with some
-other object files to form `testing.elf`, then strip that down to
-`testing.bin`. We will learn more about linking later.
-
-This Makefile is also configured to build a `testing.list` file that contains the text of the ARM assembly instructions compiled from the `testing.c` C source file.
-
-Whenever you make a change to your program, run `make` again to rebuild the program from the changed files and generate a new assembly list file.
-
-#### What do you expect?
-
-Before we run the program, let's think about what we expect to
-happen. The `assert` macro (in `assert.h`) will call `abort` if its 
-argument evaluates to false, but what does `abort` do? (hint: look in `abort.c`)
-
-Next, look at `cstart.c` and determine what will happen if your
-program returns from `main()` without an assertion failure (i.e., what
-will happen if the program works!). Don't worry about the `bss` stuff
-for now: we will talk about that in class soon.
-
-__If `is_odd()` has a bug, what would you expect to see on the Pi? In
-contrast, what would you expect to see on the Pi if `is_odd()` worked
-properly?__
-
-
-#### Run the program
-
-Run `rpi-install.py testing.bin`. You should get the blinking red
-LED of doom. You now know at least one test failed, but which one?
-The strategy from here is to iterate, selectively commenting in/out 
-test cases and re-running to narrow in on which specific cases fail. 
-How many of the test cases pass? How many fail?  Which ones? Why?
-
-Use the information you glean from the test cases to identify what is wrong.
-Now fix the bug in `is_odd` so that it works correctly for any argument.
-Uncomment all test cases, rebuild, re-run, and bask in the glow of the green light of happiness!
-
-#### Make install
-
-Phew, typing out `rpi-install.py testing.bin` so many times was
-incredibly taxing on your poor fingers! Try adding a recipe for
-`install` to your Makefile that allows you to build and a run
-a test program on your Pi with the single command `make install`.
-
 <a name="crossref"></a>
-### 4. Wire up display breadboard (0:50 - 2:00)
+### 1. Wire up display breadboard (0:00 - 1:10)
 
-Your next assignment will be to build a simple clock
+Your first assignment will be to build a simple clock
 using a 4-digit 7-segment display. This lab will get you
 set up to do this.
 
@@ -198,7 +59,7 @@ This lab exercise has been deliberately designed to step you
 through the process and has you test each stage as you go. 
 A "test as you go" strategy is the hallmark of a great engineer, please follow along carefully!
 
-#### 4.1) How the display works (0:50 - 1:00)
+#### 4.1) How the display works (0:00 - 0:10)
 
 Let's start by understanding how a single 7-segment display works.
 
@@ -266,7 +127,7 @@ and the numbers increase as you move right up to 6,
 and then continue around on the top.
 Note that pin 12 is in the top-left corner.
 
-#### 4.2) Wire up resistors/segments (1:00 - 1:15)
+#### 4.2) Wire up resistors/segments (0:10 - 0:25)
 
 In this step, you are going to wire up the segments of the display and turn
 them on. For ease of debugging, we recommend that you first wire up the display
@@ -337,7 +198,7 @@ turned on).
 
 ![Wired breadboard with components](images/jumper2.jpg)
 
-#### 4.3) Wire up transistors/digits (1:15 - 1:25)
+#### 4.3) Wire up transistors/digits (0:25 - 0:35)
 
 Up to now, you have been controlling whether a digit is on by adding or
 removing a jumper that connects the digit pin to ground. We eventually want to
@@ -389,7 +250,7 @@ transistors, which displays `"1 1 "`.
 **Check in:** test your transistor controlled display by turning on each digit
 individually with a pattern such as `1`.
 
-#### 4.4) Permanently wire circuit (1:25 - 2:00)
+#### 4.4) Permanently wire circuit (0:35 - 1:10)
 
 Now comes the time-consuming part. Each segment pin needs to be connected to
 its resistor and each digit pin connected to the collector of its transistor.
@@ -435,6 +296,145 @@ that lets you set the time. You are constrained to use only 2 buttons. Here
 is how we wired up 2 buttons on our breadboard.
 
 ![Buttons](images/button.jpg)
+
+### 2. C to assembly (1:10 - 1:30)
+
+The goal of this exercise is to understand how C is translated 
+into assembly language. You won't likely hand-code that much assembly, but you will often spend time __reading__ assembly, so the focus is on gaining reading familiarity.
+
+We want you to have an understanding of 
+how the compiler generates assembly from C
+and be able to inspect that assembly to better understand 
+the execution of a program.
+As we will see, sometimes the assembly
+produced by the C compiler can be surprising. 
+Using your ARM superpowers, you can dig into the generated 
+assembly and figure out what the compiler did, instead of sitting 
+there dumbfounded when an executing program does not behave as expected!
+
+Go to the `lab2/code/codegen` directory. Open the `codegen.c` source file in
+your text editor. The file contains four parts that explore different aspects of C: arithmetic, if/else, loops, and pointers.
+
+Skim the C code and read the comments we provide. To see how that C is translated by the compiler, you can run `make` and  open the `codegen.list` file, but it's a bit faster (and definitely more fun!) to
+play with the online Compiler Explorer we used in lecture.
+
+Bring up the [Compiler Explorer](https://godbolt.org/#g:!((g:!((g:!((h:codeEditor,i:(j:1,lang:c%2B%2B,source:'//+Type+your+code+here,+or+load+an+example.%0Aint+square(int+num)+%7B%0A++++return+num+*+num%3B%0A%7D'),l:'5',n:'0',o:'C%2B%2B+source+%231',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0'),(g:!((h:compiler,i:(compiler:arm541,filters:(b:'0',binary:'1',commentOnly:'0',demangle:'0',directives:'0',execute:'1',intel:'0',trim:'0'),lang:c%2B%2B,libs:!(),options:'-Og+-ffreestanding+-marm',source:1),l:'5',n:'0',o:'ARM+gcc+5.4.1+(none)+(Editor+%231,+Compiler+%231)+C%2B%2B',t:'0')),k:50,l:'4',n:'0',o:'',s:0,t:'0')),l:'2',n:'0',o:'',t:'0')),version:4) in a browser window. Choose the compiler `ARM gcc 5.4.1 (none)` and enter flags `-Og -ffreestanding -marm`.  This gives you a close approximation of our compiler version/environment (although not an exact match). Paste each part
+from `codegen.c` into the Compiler Explorer window and read through the generated assembly to understand the compiler's translation. Use the comments in the C source code as your guide for what to watch for. 
+
+Keep in mind that a great way to learn how a system works is by trying
+things. Curious about some C code is translated to assembly? Try it out and see. Let your curiosity be your guide!
+
+### 2. Makefiles (1:30 - 1:45)
+
+Break into pairs and read the following Makefile.
+
+```
+    NAME = blink
+
+    CFLAGS = -g -Wall -Og -std=c99 -ffreestanding
+    LDFLAGS = -nostdlib -e main
+
+    all: $(NAME).bin
+     
+    %.bin: %.elf
+        arm-none-eabi-objcopy $< -O binary $@
+
+    %.elf: %.o
+        arm-none-eabi-gcc $(LDFLAGS) $< -o $@
+
+    %.o: %.c
+        arm-none-eabi-gcc $(CFLAGS) -c $< -o $@
+    
+    %.list: %.o
+        arm-none-eabi-objdump -d $< > $@
+
+    install: $(NAME).bin
+        rpi-install.py $<
+
+    clean:
+        rm -f *.o *.elf *.bin *.list
+```
+
+Discuss and document all the various features and syntactical
+constructs used in this Makefile.
+
+ - What do each of the CFLAGS do?
+ - What happens if you just type `make`? Which commands will execute?
+ - If you modify blink.c and run `make` again, which commands will rerun?
+What part of each target indicates the prerequisites? (A prerequisite means 
+that if that file changes, then the target is stale and must be rebuilt)
+ - What do the symbols `$<` and `$@` mean?
+
+You should be able to answer the [first check-in question](checkin) now.
+
+### 3. Testing (1:45 - 2:00)
+
+As you write more complicated programs, you'll want to test
+them; keeping track of what parts of the program work and what parts don't is essential
+to debugging effectively. Starting with assignment 2, we'll provide you with some 
+automated tests and tools you can use to write your own tests.
+Let's walk through a simple example with tests.
+
+#### A buggy program
+
+Go to the `lab2/code/testing` directory in your terminal.
+
+Look at the simple program in `testing.c` that defines a (buggy) `is_odd` function. The `main()` function is tries `is_odd` on a variety of inputs and uses `assert()` to validate that the result was correct.  If result was correct, the assert succeeds and the program continues on normally. If the result was incorrect, the assert fails and raises an error. 
+
+We can use `assert()` to test that our program is working as expected.
+If we pass in an expression that we're *expecting* to be true and `assert()` throws an error, we know that we have a bug
+in our program. If our program is working correctly, our assert statements should return smoothly.
+
+Take a moment to answer the [second check-in question](checkin).
+
+#### Build the program
+
+Now run `make`.
+
+Running `make` will generate both `testing.bin` and
+ `testing.list`. To produce `testing.bin`, the computer needs to
+_compile_ `testing.c` to `testing.o`, then _link_ that `.o` with some
+other object files to form `testing.elf`, then strip that down to
+`testing.bin`. We will learn more about linking later.
+
+This Makefile is also configured to build a `testing.list` file that contains the text of the ARM assembly instructions compiled from the `testing.c` C source file.
+
+Whenever you make a change to your program, run `make` again to rebuild the program from the changed files and generate a new assembly list file.
+
+#### What do you expect?
+
+Before we run the program, let's think about what we expect to
+happen. The `assert` macro (in `assert.h`) will call `abort` if its 
+argument evaluates to false, but what does `abort` do? (hint: look in `abort.c`)
+
+Next, look at `cstart.c` and determine what will happen if your
+program returns from `main()` without an assertion failure (i.e., what
+will happen if the program works!). Don't worry about the `bss` stuff
+for now: we will talk about that in class soon.
+
+__If `is_odd()` has a bug, what would you expect to see on the Pi? In
+contrast, what would you expect to see on the Pi if `is_odd()` worked
+properly?__
+
+
+#### Run the program
+
+Run `rpi-install.py testing.bin`. You should get the blinking red
+LED of doom. You now know at least one test failed, but which one?
+The strategy from here is to iterate, selectively commenting in/out 
+test cases and re-running to narrow in on which specific cases fail. 
+How many of the test cases pass? How many fail?  Which ones? Why?
+
+Use the information you glean from the test cases to identify what is wrong.
+Now fix the bug in `is_odd` so that it works correctly for any argument.
+Uncomment all test cases, rebuild, re-run, and bask in the glow of the green light of happiness!
+
+#### Make install
+
+Phew, typing out `rpi-install.py testing.bin` so many times was
+incredibly taxing on your poor fingers! Try adding a recipe for
+`install` to your Makefile that allows you to build and a run
+a test program on your Pi with the single command `make install`.
 
 ## Check in with TA
 
