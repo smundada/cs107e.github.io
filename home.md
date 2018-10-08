@@ -48,7 +48,7 @@ All class announcements will be posted on
 
   -   **Lectures:** Mon & Fri 11:30 AM-12:50 PM, Gates B12
   -   **Labs**: Mon 1:00pm-3:00pm & Wed 11:30am-1:30pm, Gates B21 
-  -   **Lecturers**: Chris Gregg
+  -   **Lecturer**: Chris Gregg
   -   **CAs**: Jennifer Lin, Eric Yang
   -   **Section Leaders**: Jane Lange, Matt Trost
   -   **Office Hours**: [Google Calendar](https://calendar.google.com/calendar/embed?src=r5h192gc1brdgdsc6qponi76io%40group.calendar.google.com&ctz=America%2FLos_Angeles&mode=week)
