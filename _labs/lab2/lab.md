@@ -59,7 +59,7 @@ This lab exercise has been deliberately designed to step you
 through the process and has you test each stage as you go. 
 A "test as you go" strategy is the hallmark of a great engineer, please follow along carefully!
 
-#### 4.1) How the display works (0:00 - 0:10)
+#### 1.1) How the display works (0:00 - 0:10)
 
 Let's start by understanding how a single 7-segment display works.
 
@@ -127,7 +127,7 @@ and the numbers increase as you move right up to 6,
 and then continue around on the top.
 Note that pin 12 is in the top-left corner.
 
-#### 4.2) Wire up resistors/segments (0:10 - 0:25)
+#### 1.2) Wire up resistors/segments (0:10 - 0:25)
 
 In this step, you are going to wire up the segments of the display and turn
 them on. For ease of debugging, we recommend that you first wire up the display
@@ -198,7 +198,7 @@ turned on).
 
 ![Wired breadboard with components](images/jumper2.jpg)
 
-#### 4.3) Wire up transistors/digits (0:25 - 0:35)
+#### 1.3) Wire up transistors/digits (0:25 - 0:35)
 
 Up to now, you have been controlling whether a digit is on by adding or
 removing a jumper that connects the digit pin to ground. We eventually want to
@@ -250,7 +250,7 @@ transistors, which displays `"1 1 "`.
 **Check in:** test your transistor controlled display by turning on each digit
 individually with a pattern such as `1`.
 
-#### 4.4) Permanently wire circuit (0:35 - 1:10)
+#### 1.4) Permanently wire circuit (0:35 - 1:10)
 
 Now comes the time-consuming part. Each segment pin needs to be connected to
 its resistor and each digit pin connected to the collector of its transistor.
@@ -270,7 +270,7 @@ replaced by labeled dots where you should connect jumpers from the GPIO pins on
 the Pi. For example, setting Pins 10 and 20 to high will turn on the top
 segment of the first digit.
 
-#### 4.5) Connect to Raspberry Pi
+#### 1.5) Connect to Raspberry Pi
 
 The final(!) step is to connect the display to the GPIOs of your Raspberry Pi
 so you can control the display with a program. We will outline the process in
@@ -324,7 +324,7 @@ from `codegen.c` into the Compiler Explorer window and read through the generate
 Keep in mind that a great way to learn how a system works is by trying
 things. Curious about some C code is translated to assembly? Try it out and see. Let your curiosity be your guide!
 
-### 2. Makefiles (1:30 - 1:45)
+### 3. Makefiles (1:30 - 1:45)
 
 Break into pairs and read the following Makefile.
 
@@ -367,7 +367,7 @@ that if that file changes, then the target is stale and must be rebuilt)
 
 You should be able to answer the [first check-in question](checkin) now.
 
-### 3. Testing (1:45 - 2:00)
+### 4. Testing (1:45 - 2:00)
 
 As you write more complicated programs, you'll want to test
 them; keeping track of what parts of the program work and what parts don't is essential
