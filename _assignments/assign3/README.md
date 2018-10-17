@@ -8,7 +8,7 @@ toc: true
 
 *Written by Pat Hanrahan; updated by Julie Zelenski and Philip Levis*
 
-**Due: Tuesday, May 1, 2018 at 6:00 PM**
+**Due: Wednesday, Oct 24, 2018 at 11:00 AM**
 
 
 ## Goals
