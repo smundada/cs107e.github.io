@@ -1,7 +1,7 @@
 #include "gpio.h"
 #include "timer.h"
 
-#define DELAY 200
+#define DELAY 800
 
 int square(int val)
 {
@@ -25,3 +25,4 @@ void main(void)
     timer_init();
     blink(GPIO_PIN47);
 }
+
