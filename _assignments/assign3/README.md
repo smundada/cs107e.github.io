@@ -8,7 +8,7 @@ toc: true
 
 *Written by Pat Hanrahan; updated by Julie Zelenski and Philip Levis*
 
-**Due: Wednesday, Oct 24, 2018 at 11:00 AM**
+**Due: Wednesday, Oct 24, 2018 at 11:30 AM**
 
 
 ## Goals
@@ -81,13 +81,13 @@ code, read the `Makefile` for more information on how to reuse modules written
 for previous assignments.
 
 The starter code contains the modules `printf.c` and `strings.c` (mostly-empty
-to start) and the application programs `main.c` and `test.c` which are used to
+to start) and the application programs `apps/print.c` and `tests/test_print.c` which are used to
 exercise the functions in the modules.
 
 You will edit the `strings.c` and `printf.c` files to implement the required
-functions.  You will also edit `test.c` to add testing code to check your
-implementation.  The `main.c` contains a sample program that exercises the
-modules. **Do not modify `main.c`, as doing so means we can't be sure that your
+functions.  You will also edit `tests/test_print.c` to add testing code to check your
+implementation.  The `apps/print.c` contains a sample program that exercises the
+modules. **Do not modify `apps/print.c`, as doing so means we can't be sure that your
 assignment solution conforms to the interface we expect.**
 
 ## Basic section
@@ -269,7 +269,7 @@ string. You can test it with simple examples such as `snprintf(buf, BUF_SIZE, "H
 Next, add formatting codes one by one. Which formatting code is easiest to start with? In
 your test program, add more tests one by one, so that when you rerun your tests you'll see
 if you accidentially broke some existing functionality.
-Check out the function `test_snprintf` in `test.c`.
+Check out the function `test_snprintf` in `tests/test_print.c`.
 
 Having a working `snprintf` is the big hill to get over in this assignment. Once you have
 a working snprtinf, building up the rest of the assignment is a set of simple layers.
@@ -297,7 +297,7 @@ int printf(char *format, ... );
 By now, you should be familiar with testing your code step by step. Hopefully you
 have been writing mini-tests all along to verify your functions.
 
-This given tests in `main.c` and `test.c` only tests basic `printf` functionality,
+This given tests in `apps/print.c` and `tests/test_print.c` only tests basic `printf` functionality,
 so make sure you should add your own tests as well.
 You should include at least one
 test for each type of `printf` argument (`%c`, `%s`, `%p`, `%d`, `%x`). For example, such tests might look like
@@ -379,9 +379,9 @@ doesn't work, you'll at least know exactly where to find the mistake.
 
 __We strongly recommend that you follow a "test as you go" strategy!__ As you write each function, immediately turn your attention to testing it. 
 
-We provide a few tests to get you started in `test.c`. Passing the given tests is a good first step, but these simple tests are far from sufficient. Part of your job is to review `test.c` to understand what is provided and brainstorm what additional tests are needed to thoroughly vet your functions. Edit `test.c` to add those test cases and verify that your implementation passes all those tests before moving on to the next function.
+We provide a few tests to get you started in `tests/test_print.c`. Passing the given tests is a good first step, but these simple tests are far from sufficient. Part of your job is to review `tests/test_print.c` to understand what is provided and brainstorm what additional tests are needed to thoroughly vet your functions. Edit `tests/test_print.c` to add those test cases and verify that your implementation passes all those tests before moving on to the next function.
 
-Never delete a test! Sometimes a test that you passed earlier will regress due to later changes. If you have removed the test case, you may not realize the bug has resurfaced. Just keep accumulating tests in `test.c` as you think of new cases to try and then each run of your test can validate you are passing your entire suite.
+Never delete a test! Sometimes a test that you passed earlier will regress due to later changes. If you have removed the test case, you may not realize the bug has resurfaced. Just keep accumulating tests in `tests/trest_print.c` as you think of new cases to try and then each run of your test can validate you are passing your entire suite.
 
 One unfortunate circularity with trying to test a printf implementation is the
 lack of a working printf to help you debug.  Here are a couple of strategies
@@ -399,7 +399,7 @@ implementation by changing the name of all the functions in `printf.c` (e.g.
 adding a `my_` prefix, such as `my_printf`).  **NOTE:** you should also update
 your testing code to call your renamed functions (e.g.  `my_printf`), and use
 the normal `printf` in places where you'd like to debug.  For example, in
-`test.c` you might call `my_printf` to test your code, and within your
+`tests/test_print.c` you might call `my_printf` to test your code, and within your
 `my_printf` implementation, you might call `printf` to read out internal values
 for debugging. **WARNING:** Our implementation of `printf` will use your
 implementation of the functions in `strings.c`. You should be certain that your
@@ -445,13 +445,13 @@ ours.
 
 CI will automatically check that:
 
-- `main.c` is unchanged
+- `apps/print.c` is unchanged
 
 - `make` completes successfully
 
-- `make test.bin` completes successfully using your `test.c`
+- `make tests/test_print.bin` completes successfully using your `tests/test_print.c`
 
-- `make test.bin` completes successfully using the original `test.c` from
+- `make tests/test_print.bin` completes successfully using the original `tests/test_print.` from
   the starter code (we will swap this in before running it)
 
 Again, if CI fails on your final submission, we will automatically
