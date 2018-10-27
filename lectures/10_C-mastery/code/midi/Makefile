@@ -1,5 +1,5 @@
-NAME = midi-beat
-#NAME = midi-lamb
+#NAME = midi-beat
+NAME = midi-lamb
 
 OBJECTS =  midi.o
 
