@@ -48,11 +48,11 @@ void main(void) {
     printf ("depth (bits): %d\n", (int)fb.depth);
     unsigned pitch = fb.pitch / 4; // bytes to words
     unsigned(*im)[pitch] = (unsigned(*)[pitch])fb.framebuffer;
-    im[0][0] = 0xffff0000;
+    im[0][0] = 0x00ff0000;
     timer_delay_ms(1000);
-    im[0][1] = 0xffffff00;
+    im[0][1] = 0x00ffff00;
     timer_delay_ms(1000);
-    im[1][0] = 0xff0000ff;
+    im[1][0] = 0x000000ff;
     timer_delay_ms(1000);
-    im[1][1] = 0xff00ffff;
+    im[1][1] = 0x0000ffff;
 }
