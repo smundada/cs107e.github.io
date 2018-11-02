@@ -2,6 +2,7 @@
 #include "uart.h"
 #include "mailbox.h"
 #include "printf.h"
+#include "timer.h"
 
 #define GPU_NOCACHE 0x40000000
 
@@ -25,8 +26,11 @@ const int HEIGHT = 480;
 const int DEPTH = 32;
 
 int fb_init(void) {
-    fb.width = fb.virtual_width = WIDTH;
-    fb.height = fb.virtual_height = HEIGHT;
+    fb.width = WIDTH;
+    fb.height = HEIGHT;
+    fb.virtual_width = WIDTH;
+    fb.virtual_height = WIDTH;
+
     fb.depth = DEPTH;
     fb.x_offset = 0;
     fb.y_offset = 0;
@@ -47,6 +51,9 @@ void main(void) {
     (void) fb_init();
 
     unsigned *im = (unsigned *)fb.framebuffer;
+    printf("fb.pitch: %d\n",fb.pitch);
+    printf("fb.height: %d\n",fb.height);
+
     int n = (fb.pitch / 4)* fb.height; // words not bytes
     for (int i = 0; i < n; i++) { 
         *im++ = 0xff0000ff; // blue!!
