@@ -122,7 +122,7 @@ or stop bit is incorrect, discard the scancode and try again.
 `keyboard_read_scancode` should not return 0 on
 failure: instead, it should retry reading a new scancode from the beginning.  It is important to recovery gracefully from transmission errors. Discard as many invalid tries as necessary, just be sure the function returns a valid scancode in the end.
 
-The first test in `test.c` can be used to print out scancodes.
+The first test in `tests/test_keyboard.c` can be used to print out scancodes.
 
 **Timing is everything!**: One important consideration to keep in mind is that the timing of the PS/2 protocol has to be strictly followed. The keyboard sends the bits rapid-fire and you need to be prepared to catch each bit as it arrives. Once your driver sees the falling clock edge for the start bit, it needs to stay on task to read each subsequent bit. There is not much time between the falling clock edges! If you call `printf` or attempt some involved task while reading bits, you're very likely to miss a few. Save any debug printing for after you read the entire sequence.
 
@@ -156,7 +156,7 @@ So, sequences involving extended keys have length 2 or 3. For example,
 pressing the right control key will cause the keyboard to send the scancode
 `0xE0` followed by `0x14` and releasing will send `0xE0`, `0xF0`, `0x14`.
 
-Use the functions in `test.c` to verify you can properly read sequences.
+Use the functions in `tests/test_keyboard.c` to verify you can properly read sequences.
 
 #### 3) Process keyboard events
 The mid-level routine of keyboard driver returns key events. A key event repackages the scancode sequence into a structured form-- which key was involved, whether the event is a key up or key down, and what modifier keys (control, alt, shift) are currently in effect.
@@ -197,7 +197,7 @@ such as `PS2_CODE_RELEASE = 0xF0`, and `PS2_CODE_EXTEND = 0xE0` and codes for th
 There are also constants for the character values assigned to the special keys
 such as HOME and F1.
 
-Use the functions in `test.c` to verify reading key events before moving on.
+Use the functions in `test/test_keyboard.c` to verify reading key events before moving on.
 
 #### 4)  Produce ASCII characters
 
