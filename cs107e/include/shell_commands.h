@@ -108,5 +108,7 @@ int cmd_peek(int argc, const char* argv[]);
  */
 int cmd_poke(int argc, const char* argv[]);
 
+// added for history
+int cmd_history(int argc, const char* argv[]);
 
 #endif
